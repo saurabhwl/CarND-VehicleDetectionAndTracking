@@ -12,9 +12,9 @@
 
 ---
 
-##Histogram of Oriented Gradients (HOG)
+## Histogram of Oriented Gradients (HOG)
 
-####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+## 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
 The implementation can be found in of the file `get_hog_features()` from the file `Features.py`.
 In the `VehicleDetection` class a wrapper method `__get_hog_features()` exists to calculate the features with the current settings specified in the configuration file.
@@ -28,7 +28,7 @@ For non-vehicle images such a shape is not identifiable.
 
 The image also shows the histogram feature for the HLS color space.
 
-####2. Explain how you settled on your final choice of HOG parameters.
+## 2. Explain how you settled on your final choice of HOG parameters.
 
 I tried several combinations of orientation, pixel per cell and cells per block.
 After visualizing the results I trained the classifier and checked the results on the video.
@@ -45,7 +45,7 @@ Lowering the number of orientations gave worse results while increasing the numb
 
 The hog features where extracted for all three channels of the image after transforming it to another color space (I used YCrCb in the end.)
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+## 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 The training of the classifier takes place in the `__train_classifier()` method of the
 `VehicleDetection` class.
@@ -65,9 +65,9 @@ The data is normalized and deals as input for a linear Support Vector Classifier
 
 The results are stored and can be re-used later on.
 
-###Sliding Window Search
+## Sliding Window Search
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+## 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
 The final implantation of the sliding window search can be found in the `__detect_vehicles_frame()` method of the `VehicleDetection` class.
 
@@ -79,7 +79,7 @@ This is visualized in the image below with 96x96 windows shown in green and 64x6
 
 ![alt text][image3]
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+## 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 The pipeline works quite well on still images.
 It detects the vehicles in the images on your lane and even is capable of detecting images on the other traffic lanes.
@@ -88,12 +88,12 @@ Some false positives occur but their number is rather low.
 ![alt text][image4]
 ---
 
-### Video Implementation
+## Video Implementation
 
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
+## 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./results/project_video.mp4)
 
-####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
+## 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
 First all windows, for which the classifier returns "vehicle" are summed up in a heatmap.
 
@@ -148,9 +148,9 @@ This means that at least 3 detections in consecutive frames are necessary to ini
 
 ---
 
-###Discussion
+## Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+## 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 - Incompatible image data types caused problems at the beginning.
 The training images where provided in png and read in floating point representation while the
