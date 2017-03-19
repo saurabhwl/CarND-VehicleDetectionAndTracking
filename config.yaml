@@ -1,0 +1,32 @@
+Common:
+  ColorSpace: YCRCB
+Video:
+  Process: True
+  InputFile:
+    #- data/videos/short_project_video.mp4
+    - data/videos/project_video.mp4
+    #- data/videos/challenge_video.mp4
+    #- data/videos/harder_challenge_video.mp4
+  StorageFolder: results/videos
+Image:
+  Process: False
+  InputFolder: data/images
+  Pattern: test
+  StorageFolder: results/images
+Classifier:
+  UseStoredFile: True
+  Visualization: True
+  HogFeatures: True
+  HogChannel: -1
+  Orientation: 9
+  PixelPerCell: 8
+  CellPerBlock: 2
+  HistFeatures: True
+  NBins: 16
+  SpatialFeatures: True
+  SpatialSize: (16,16)
+  Folder: results/classifier
+SlidingWindow:
+  Scaling: 1.5, 1.25, 1.0
+  CellsPerStep: 2
+  YStartStop: (400, 656)
